@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
 
-  namespace :access do
-  end
+    match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+    match '/logout', to: 'sessions#destroy', via: [:get, :post]
 
-  resources :dev
-  resources :app
+    namespace :access do
+    end
 
-  root 'dev#index'
+    resources :dev
+    resources :app
+
+    root 'dev#index'
 
 end

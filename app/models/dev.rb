@@ -2,12 +2,12 @@ class Dev < ActiveRecord::Base
 
     before_create :create_remember_token
 
-    has_many :apps, inverse_of: :dev
+    has_many :identities, inverse_of: :dev, dependent: :destroy
+    has_many :apps, inverse_of: :dev, dependent: :destroy
 
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates :name, presence: true, length: {maximum: 50}
-    validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
-    validates :access_level, presence: true, default: 4
+    validates :access_level, presence: true
 
     def Dev.new_remember_token
         SecureRandom.urlsafe_base64
@@ -15,6 +15,10 @@ class Dev < ActiveRecord::Base
 
     def Dev.digest(token)
         Digest::SHA1.hexdigest(token.to_s)
+    end
+
+    def Dev.create_with_omniauth(info)
+        create(name: info['name'])
     end
 
     private

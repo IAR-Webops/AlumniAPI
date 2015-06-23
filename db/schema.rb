@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150622120524) do
+ActiveRecord::Schema.define(version: 20150623141902) do
 
   create_table "apps", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -19,13 +19,24 @@ ActiveRecord::Schema.define(version: 20150622120524) do
   end
 
   create_table "devs", force: :cascade do |t|
-    t.string   "name",         limit: 255,             null: false
-    t.string   "email",        limit: 255,             null: false
-    t.integer  "access_level", limit: 4,   default: 4, null: false
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.string   "name",           limit: 255,             null: false
+    t.integer  "access_level",   limit: 4,   default: 4, null: false
+    t.string   "remember_token", limit: 255
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   add_index "devs", ["access_level"], name: "index_devs_on_access_level", using: :btree
+
+  create_table "identities", force: :cascade do |t|
+    t.integer  "dev_id",     limit: 4
+    t.string   "uid",        limit: 255
+    t.string   "provider",   limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "identities", ["dev_id"], name: "index_identities_on_dev_id", using: :btree
+  add_index "identities", ["provider"], name: "index_identities_on_provider", using: :btree
 
 end
