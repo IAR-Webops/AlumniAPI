@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   end
 
   resources :dev
+  resources :app
 
   root 'dev#index'
 

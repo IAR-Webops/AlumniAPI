@@ -1,0 +1,130 @@
+$primary-color: #3498db;
+$primary-dark-color: #2980b9;
+
+html{
+    height: 100%;
+}
+
+body{
+    height: 100%;
+    margin: 0;
+}
+
+.main{
+    overflow-y: hidden;
+//    margin: 0 auto -50px !important;
+    padding-top: 50px;
+    padding-bottom: 0;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.navbar_container{
+    height: inherit;
+    background-color: $primary-color;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+
+.navbar
+{ 
+    height: 50px;
+    min-height: 0;
+    margin: auto;
+    box-shadow: 0 3px 5px -2px $primary-dark-color !important;
+}
+
+.navbar-collapse{
+    min-height: 0;
+    height: 50px !important;
+}
+
+.navbar-header{
+    height: inherit;
+    width:15%;
+    background-color: $primary-dark-color;
+}
+
+.navbar-brand{
+    height: inherit;
+    color: #ecf0f1 !important;
+    width: 100%;
+    text-align: center;
+    margin-left: 0 !important;
+}
+
+.navbar-nav>li>a{
+    color: #ecf0f1 !important;
+}
+
+.navbar-right{
+    margin-right: 0 !important;
+}
+
+.dropdown-toggle:active{
+    color: $primary-color;
+}
+
+/* sidebar styling from here */
+.sidebar{
+    width: 15%;
+    float: left;
+    background-color: #ecf0f1;
+    height: 100%;
+    z-index: 10;
+}
+
+.sidebar_list{
+    list-style-type: none;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background-color: #F7F8FC;
+    border-right: solid thin #ecf0f1;
+}
+
+.sidelist_element{
+    width: 100%;
+    height: 50px;
+    background-color: #E9EEF4;
+    text-align: center;
+    vertical-align: middle;
+    color: $primary-color;
+    border-bottom: solid thin #f7f8fc;
+}
+
+.sidelist_element>a>div{
+    color: $primary-color;
+}
+
+.sidelist_element>a>div:hover{
+    color: #ecf0f1;
+    background-color: $primary-color;
+}
+
+.sidelist_element>a>div:active{
+    color: #ecf0f1;
+    background-color: $primary-color;
+}
+
+#welcome{
+    background-color: #F7F8FC;
+    padding: 15px;
+}
+
+.sidebar_link{
+    padding: 15px;
+}
+
+a{
+    text-decoration: none !important;
+}
+
+#hidden_div{
+    display: none;
+}
+/* sidebar styling complete*/

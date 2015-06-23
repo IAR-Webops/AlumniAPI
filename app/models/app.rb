@@ -4,6 +4,7 @@ class App < ActiveRecord::Base
 
     validates :name, presence: true, length: {maximum: 50}
     validates :secret_token, presence: true, uniqueness: true
+    validates :access_level, presence: true, default: 4
 
     def App.new_secret_token
         SecureRandom.urlsafe_base64
