@@ -1,6 +1,6 @@
 class DevController < ApplicationController
 
-  def index
+  def dashboard
   end
 
   def new

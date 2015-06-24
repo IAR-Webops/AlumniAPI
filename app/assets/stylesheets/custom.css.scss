@@ -1,6 +1,8 @@
 $primary-color: #3498db;
 $primary-dark-color: #2980b9;
+$white: #ecf0f1; 
 
+/* General layout styling */
 html{
     height: 100%;
 }
@@ -12,7 +14,7 @@ body{
 
 .main{
     overflow-y: hidden;
-//    margin: 0 auto -50px !important;
+    //    margin: 0 auto -50px !important;
     padding-top: 50px;
     padding-bottom: 0;
     padding-left: 0 !important;
@@ -21,6 +23,8 @@ body{
     width: 100%;
     margin: 0;
 }
+
+/* navbar styling */
 
 .navbar_container{
     height: inherit;
@@ -35,7 +39,7 @@ body{
     height: 50px;
     min-height: 0;
     margin: auto;
-    box-shadow: 0 3px 5px -2px $primary-dark-color !important;
+    box-shadow: 0 1px 2px -1px $primary-dark-color !important;
 }
 
 .navbar-collapse{
@@ -51,18 +55,24 @@ body{
 
 .navbar-brand{
     height: inherit;
-    color: #ecf0f1 !important;
+    color: $white !important;
     width: 100%;
     text-align: center;
     margin-left: 0 !important;
 }
 
-.navbar-nav>li>a{
-    color: #ecf0f1 !important;
+.navbar-right{
+    height: 50px;
+    margin-right: 0;
 }
 
-.navbar-right{
-    margin-right: 0 !important;
+.navbar-nav>li>a{
+    color: $white !important;
+}
+
+.navbar-right>li>a:hover{
+    color: $primary_color !important;
+    background-color: $white !important;
 }
 
 .dropdown-toggle:active{
@@ -73,7 +83,7 @@ body{
 .sidebar{
     width: 15%;
     float: left;
-    background-color: #ecf0f1;
+    background-color: $white;
     height: 100%;
     z-index: 10;
 }
@@ -84,7 +94,7 @@ body{
     height: 100%;
     padding: 0;
     background-color: #F7F8FC;
-    border-right: solid thin #ecf0f1;
+    border-right: solid thin $white;
 }
 
 .sidelist_element{
@@ -102,12 +112,12 @@ body{
 }
 
 .sidelist_element>a>div:hover{
-    color: #ecf0f1;
+    color: $white;
     background-color: $primary-color;
 }
 
 .sidelist_element>a>div:active{
-    color: #ecf0f1;
+    color: $white;
     background-color: $primary-color;
 }
 
@@ -128,3 +138,74 @@ a{
     display: none;
 }
 /* sidebar styling complete*/
+
+/* Styling for main-sub class div*/
+
+.main-sub{
+    width: 85%;
+    float: right;
+    height: 100%;
+    padding-bottom: 50px;
+    padding-right: 0;
+    padding-left: 0;
+    overflow-y: auto;
+}
+
+/* Styling for the signin modal */
+
+.modal-body{
+    padding: 0;
+    width: 30%;
+    margin-left: 30%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#customBtn {
+    display: inline-block;
+    color: white;
+    width: 250px;
+    white-space: nowrap;
+}
+
+.customGPlusSignIn{
+    background: #4285f4;
+}
+
+.customFacebookSignIn{
+    background: #3A5799;
+}
+
+span.label {
+    font-weight: bold;
+}
+
+span.icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 42px;
+    height: 42px;
+}
+
+span.google_icon{
+    background: image-url('g-normal.jpg');
+    border-right: $white 1px solid;
+    background-size: contain;
+}
+
+span.facebook_icon{
+    background: image-url('f-normal.jpg') ;
+    border-right: $white 1px solid;
+    background-size: contain;
+}
+
+span.buttonText {
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 42px;
+    padding-right: 42px;
+    font-size: 14px;
+    font-weight: bold;
+    /* Use the Roboto font that is loaded in the <head> */
+    font-family: 'Roboto', sans-serif;
+}

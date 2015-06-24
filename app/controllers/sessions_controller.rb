@@ -32,7 +32,7 @@ class SessionsController < ApplicationController
                 redirect_to root_url, notice: "Signed in!"
             else
                 # No dev associated with the identity so we need to create a new one
-                redirect_to new_dev_url, notice: "Please finish registering"
+                redirect_to root_url, notice: "Please finish registering"
             end
         end
     end

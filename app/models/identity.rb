@@ -3,6 +3,7 @@ class Identity < ActiveRecord::Base
 
     validates :uid, presence: true
     validates :provider, presence: true
+    validates :dev_id, presence: true
 
     def self.find_with_omniauth(auth)
         find_by(uid: auth['uid'], provider: auth['provider'])

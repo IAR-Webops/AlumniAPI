@@ -1,6 +1,6 @@
 <div class="sidebar">
     <div class="sidebar_list">
-        <div id="welcome" class="sidelist_element">Welcome, <%= current_dev %>! </div>    
+        <div id="welcome" class="sidelist_element">Welcome, <%= signed_in? ? current_dev : "Guest" %>! </div>    
         <div class="sidelist_element"><a href="#"><div class="sidebar_link">Link 1</div></a></div> 
         <div class="sidelist_element"><a href="#"><div class="sidebar_link">Link 2</div></a></div> 
         <div class="sidelist_element"><a href="#"><div class="sidebar_link">Link 3</div></a></div> 

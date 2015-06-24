@@ -9,6 +9,6 @@ Rails.application.routes.draw do
     resources :dev
     resources :app
 
-    root 'dev#index'
+    root 'dev#dashboard'
 
 end

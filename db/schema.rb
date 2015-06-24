@@ -14,9 +14,17 @@
 ActiveRecord::Schema.define(version: 20150623141902) do
 
   create_table "apps", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "dev_id",       limit: 4,               null: false
+    t.string   "name",         limit: 255,             null: false
+    t.integer  "secret_id",    limit: 4,               null: false
+    t.string   "secret_key",   limit: 255,             null: false
+    t.integer  "access_level", limit: 4,   default: 4, null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
+
+  add_index "apps", ["access_level"], name: "index_apps_on_access_level", using: :btree
+  add_index "apps", ["dev_id"], name: "index_apps_on_dev_id", using: :btree
 
   create_table "devs", force: :cascade do |t|
     t.string   "name",           limit: 255,             null: false

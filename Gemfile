@@ -33,10 +33,9 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 # facebook oauth gem
 gem 'omniauth-facebook'
-# github oauth gem
-gem 'omniauth-github'
-# gem for amazon omniauth
-gem 'omniauth-amazon'
+
+# gem to generate ERD
+gem 'rails-erd'
 
 # API gems
 gem 'active_model_serializers'

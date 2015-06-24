@@ -12,15 +12,24 @@
 </head>
 <body>
 <%= render "shared/navbar"%>
-<div class="main container">
+<div class="main container-fluid">
 
-  <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>"><%= value %></div>
-  <% end %>
+    <%= render 'shared/sidebar' %>
 
-  <%= yield %>
+    <div class="main-sub container-fluid">
+
+        <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %>"><%= value %></div>
+        <% end %>
+
+        <%= yield %>
+
+    </div>
 
 </div>
+<% if !signed_in? %>
+    <%= render 'shared/signin_modal' %>
+<% end %>
 
 </body>
 </html>
