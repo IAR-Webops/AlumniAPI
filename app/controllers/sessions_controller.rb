@@ -1,39 +1,46 @@
 class SessionsController < ApplicationController
+
     def create
-        # Login the dev here
         auth = request.env['omniauth.auth']
-        # Find an identity here
         @identity = Identity.find_with_omniauth(auth)
+        @dev = Dev.find_by("email=?",auth['info']['email'])
 
         if @identity.nil?
             # If no identity was found, create a brand new one here
-            @identity = Identity.create_with_omniauth(auth)
-        end
+            if @dev.nil?
+                dev = Dev.new
+                auth['info']['name'] ? dev.name=auth['info']['name'] : dev.name="dev_bro"
+                dev.email = auth['info']['email']
+                dev.access_level = 4
+                if dev.save
+                    identity = Identity.new
+                    identity.uid = auth['uid']
+                    identity.provider = auth['provider']
+                    identity.dev_id = dev.id
+                    identity.save
 
-        if signed_in?
-            if @identity.dev == current_dev
-                # dev is signed in so they are trying to link an identity with their
-                # account. But we found the identity and the dev associated with it 
-                # is the current dev. So the identity is already associated with 
-                # this dev. So let's display an error message.
-                redirect_to root_url, notice: "Already linked that account!"
+                    sign_in dev
+                    redirect_to root_url
+                else
+                    flash[:error] = "Sorry, there was some error in the information we received. Please try again later."
+                    redirect_to root_url
+                end
             else
-                # The identity is not associated with the current_dev so lets 
-                # associate the identity
-                @identity.dev = current_dev
-                @identity.save()
-                redirect_to root_url, notice: "Successfully linked that account!"
+                # Do something if the dev already exists but has logged in through new identity
+                identity = Identity.new
+                identity.uid = auth['uid']
+                identity.provider = auth['provider']
+                identity.dev_id = @dev.id
+                identity.save
+
+                sign_in @dev
+                redirect_to root_url
             end
+            @identity = Identity.create_with_omniauth(auth)
         else
-            if @identity.dev.present?
-                # The identity we found had a dev associated with it so let's 
-                # just log them in here
-                self.current_dev = @identity.dev
-                redirect_to root_url, notice: "Signed in!"
-            else
-                # No dev associated with the identity so we need to create a new one
-                redirect_to root_url, notice: "Please finish registering"
-            end
+            dev = Dev.find(@identity.dev_id)
+            sign_in(dev)
+            redirect_to root_url
         end
     end
 

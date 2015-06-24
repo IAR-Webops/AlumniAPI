@@ -3,7 +3,7 @@ module SessionsHelper
     def sign_in(dev)
         remember_token = Dev.new_remember_token
         cookies.permanent[:remember_token] = remember_token
-        dev.update_attribute(:remember_token, dev.digest(remember_token))
+        dev.update_attribute(:remember_token, Dev.digest(remember_token))
         self.current_dev = dev
     end
 
