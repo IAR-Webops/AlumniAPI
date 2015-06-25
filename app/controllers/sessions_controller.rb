@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
 
+    skip_before_filter :require_signin
+
     def create
         auth = request.env['omniauth.auth']
         @identity = Identity.find_with_omniauth(auth)
