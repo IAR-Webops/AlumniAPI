@@ -2,7 +2,7 @@
     <div class="sidebar_list">
         <div id="welcome" class="sidelist_element">Welcome, <%= signed_in? ? current_dev.name : "Guest" %>! </div>    
         <% if signed_in? %>
-            <div class="sidelist_element"><%= link_to(root_path) do %><div class="sidebar_link">Dashboard</div><% end %></div> 
+            <div class="sidelist_element"><%= link_to(dashboard_path) do %><div class="sidebar_link">Dashboard</div><% end %></div> 
         <% else %>
         <% end %>
         <div class="sidelist_element"><%= link_to('#') do %><div class="sidebar_link">Dummy Link 1</div><% end %></div> 

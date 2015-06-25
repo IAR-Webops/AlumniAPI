@@ -20,10 +20,10 @@ class SessionsController < ApplicationController
                     identity.save
 
                     sign_in dev
-                    redirect_to root_url
+                    redirect_to dashboard_path
                 else
                     flash[:error] = "Sorry, there was some error in the information we received. Please try again later."
-                    redirect_to root_url
+                    redirect_to dashboard_path
                 end
             else
                 # Do something if the dev already exists but has logged in through new identity
@@ -34,19 +34,19 @@ class SessionsController < ApplicationController
                 identity.save
 
                 sign_in @dev
-                redirect_to root_url
+                redirect_to dashboard_path
             end
             @identity = Identity.create_with_omniauth(auth)
         else
             dev = Dev.find(@identity.dev_id)
             sign_in(dev)
-            redirect_to root_url
+            redirect_to dashboard_path
         end
     end
 
     def destroy
         # Logout the dev here
         sign_out
-        redirect_to root_url
+        redirect_to dashboard_path
     end
 end
