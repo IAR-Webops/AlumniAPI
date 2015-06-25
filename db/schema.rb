@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20150623141902) do
   create_table "apps", force: :cascade do |t|
     t.integer  "dev_id",       limit: 4,               null: false
     t.string   "name",         limit: 255,             null: false
-    t.integer  "secret_id",    limit: 4,               null: false
+    t.float    "secret_id",    limit: 24,              null: false
     t.string   "secret_key",   limit: 255,             null: false
     t.integer  "access_level", limit: 4,   default: 4, null: false
     t.datetime "created_at",                           null: false

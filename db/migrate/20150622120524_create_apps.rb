@@ -3,7 +3,7 @@ class CreateApps < ActiveRecord::Migration
     create_table :apps do |t|
       t.belongs_to :dev, null: false
       t.string :name, null: false
-      t.integer :secret_id, null: false
+      t.float :secret_id, null: false, limit: 10
       t.string :secret_key, null: false
       t.integer :access_level, null: false, default: 4
 

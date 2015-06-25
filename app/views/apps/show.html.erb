@@ -1,0 +1,11 @@
+<% content_for :title do%>
+    <%= @app.name %>
+<% end %>
+
+<% content_for :title_content do%>
+    My Apps > <%= @app.name %>
+<% end %>
+
+<div class="app_show_div">
+    <%= render @app %>
+</div>

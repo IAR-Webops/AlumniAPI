@@ -1,0 +1,21 @@
+<% content_for :title do%>
+    Create New App
+<% end %>
+
+<% content_for :title_content do%>
+    Create New App
+<% end %>
+
+<div class="new_app_form">
+    <div class="form_container">
+        <div class="row no_margin">
+            <div class="span6 offset3">
+                <%= form_for(:app, url: create_app_path, method: 'post' , :html => { :class => "form-horizontal"}) do |f| %>
+
+                    <%= f.text_field :name , class:"form-control", placeholder:"App Name" %><br>
+                    <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+            <% end %>
+            </div>
+        </div>
+    </div>
+</div>

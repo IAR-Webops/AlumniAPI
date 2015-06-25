@@ -1,0 +1,29 @@
+<% content_for :title do%>
+    Dashboard
+<% end %>
+
+<% content_for :title_content do%>
+    My Dashboard
+<% end %>
+
+<div class="dashboard_div">
+    <div class="dashboard_content">
+        <div class="new_app_button_div">
+        <%= link_to(new_app_path) do %>
+            <button type="button" id="new_app_button" class="btn btn-default"> + New App </button>
+        <% end %>
+        </div>
+        <div class="apps_display_div container">
+            <div class="title_span">My Apps: </div>
+            <% @apps.each do |app|%>
+                <%= link_to(app_path(app)) do %>
+                    <div class="mini_app_display col-xs-3 col-md-3">
+                        <div class="mini_property">App Name : <%= app.name %> </div>
+                        <div class="mini_property">App Access Level : <%= app.access_level %></div>
+                    </div>
+                <% end %>
+                    <div class="empty_display col-xs-1 col-md-1"></div>
+            <% end %>
+        </div>
+    </div>
+</div>

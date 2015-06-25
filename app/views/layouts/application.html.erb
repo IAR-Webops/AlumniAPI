@@ -17,6 +17,7 @@
     <%= render 'shared/sidebar' %>
 
     <div class="main-sub container-fluid">
+        <div class="title_bar"><b><%= yield :title_content %></b></div>
 
         <% flash.each do |key, value| %>
             <div class="alert alert-<%= key %>"><%= value %></div>

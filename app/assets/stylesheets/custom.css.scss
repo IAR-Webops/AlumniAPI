@@ -1,6 +1,10 @@
 $primary-color: #3498db;
 $primary-dark-color: #2980b9;
 $white: #ecf0f1; 
+$pale_bg_color: #F7F8FC;
+$side_button_color: #E9EEF4;
+$google_color: #4285f4;
+$facebook_color: #3A5799;
 
 /* General layout styling */
 html{
@@ -93,22 +97,22 @@ body{
     width: 100%;
     height: 100%;
     padding: 0;
-    background-color: #F7F8FC;
+    background-color: $pale_bg_color;
     border-right: solid thin $white;
 }
 
 .sidelist_element{
     width: 100%;
     height: 50px;
-    background-color: #E9EEF4;
+    background-color: $side_button_color;
     text-align: center;
     vertical-align: middle;
-    color: $primary-color;
-    border-bottom: solid thin #f7f8fc;
+    color: $primary-dark-color;
+    border-bottom: solid thin $pale_bg_color;
 }
 
 .sidelist_element>a>div{
-    color: $primary-color;
+    color: $primary-dark-color;
 }
 
 .sidelist_element>a>div:hover{
@@ -122,7 +126,7 @@ body{
 }
 
 #welcome{
-    background-color: #F7F8FC;
+    background-color: $pale_bg_color;
     padding: 15px;
 }
 
@@ -173,11 +177,11 @@ a{
 }
 
 .customGPlusSignIn{
-    background: #4285f4;
+    background: $google_color;
 }
 
 .customFacebookSignIn{
-    background: #3A5799;
+    background: $facebook_color;
 }
 
 span.label {
@@ -212,4 +216,103 @@ span.buttonText {
     font-weight: bold;
     /* Use the Roboto font that is loaded in the <head> */
     font-family: 'Roboto', sans-serif;
+}
+
+/* Styling for apps divs */
+
+.new_app_form{
+    background-color: $pale_bg_color;
+    height: 100%;
+    padding: 20px;
+}
+
+.no_margin{
+    margin: 0;
+}
+
+.form-control{
+    width: 25%;
+}
+
+.app_div{
+    height: 100%;
+    padding: 20px;
+    border-style: solid thin $pale_bg_color;
+}
+
+.app_element_property{
+    background-color: $pale_bg_color;
+    border-bottom: solid thin $white;
+    height: 50px;
+    padding: 15px;
+}
+
+.app_element_value{
+    border-bottom: solid thin $pale_bg_color;
+    padding: 15px;
+    height: 50px;
+}
+
+/* Styling for dashboard */
+
+.dashboard_div{
+    width: 100%;
+    height: 100%;
+    background-color: $pale_bg_color;
+}
+
+.title_bar{
+    width: 100%;
+    height: 50px;
+    color: $primary-dark-color;
+    background-color: $pale_bg_color;
+    padding: 15px;
+    border-bottom: solid thin $white;
+}
+
+.new_app_button_div{
+    padding: 8px;
+    height: 50px;
+    width: 100%;
+}
+
+#new_app_button{
+    background-color: $primary-color;
+    border-radius: 0;
+    border-color: $primary-color;
+    color: $white;
+    float: right;
+    width: 150px;
+}
+
+.apps_display_div{
+    padding: 15px;
+}
+
+.title_span{
+    height: 50px;
+    padding: 15px;
+    color: $primary-dark-color;
+}
+
+.mini_app_display{
+    height: 100px;
+    background-color: $white;
+}
+
+.mini_app_display:hover{
+    background-color: $primary-dark-color;
+    color: $white;
+}
+
+.mini_property{
+    text-align: center;
+    padding: 15px;
+    height: 50px;
+    width: 100%;
+}
+
+.empty_display{
+    height: 100px;
+    background-color: $pale_bg_color;
 }

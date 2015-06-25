@@ -7,9 +7,10 @@ Rails.application.routes.draw do
     namespace :access do
     end
 
-    resources :dev
-    resources :app
+    resources :devs
+    resources :apps
+    match '/create_app', to: 'apps#create', via: [:post]
 
-    root 'dev#dashboard'
+    root 'devs#dashboard'
 
 end
