@@ -5,7 +5,10 @@ Rails.application.routes.draw do
     get '/dashboard', to: 'devs#dashboard', via: [:get]
     get '/terms', to: 'static#terms'
 
-    namespace :access do
+    namespace :access, defaults: { format: :json } do
+        scope module: :v1 do
+            resources :users, only: [:show]
+        end
     end
 
     resources :devs

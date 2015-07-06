@@ -54,3 +54,12 @@ production:
   database: AlumniAPI_production
   username: AlumniAPI
   password: <%= ENV['ALUMNIAPI_DATABASE_PASSWORD'] %>
+
+iitmconnect:
+    adapter: mysql2
+    encoding: utf8
+    host: http://iitmadras.in/phpmyadmin/
+    port: 80
+    database: iitmconnect
+    username: user-iitmconnect
+    password: Pwd-Iitmconnect-15!%
