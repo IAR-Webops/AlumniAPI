@@ -43,6 +43,10 @@ class Access::V1::UsersController < ApplicationController
     private
 
         def user_params
-            params.require(:user).permit(:email, :password, :password_confirmation)
+            params.permit(:rollno)
+        end
+
+        def user_email_params
+            params.permit(:email)
         end
 end
