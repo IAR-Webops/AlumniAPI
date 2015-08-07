@@ -1,3 +1,5 @@
+require 'access_constraints'
+
 Rails.application.routes.draw do
 
     match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
@@ -6,7 +8,7 @@ Rails.application.routes.draw do
     get '/terms', to: 'static#terms'
 
     namespace :access, defaults: { format: :json } do
-        scope module: :v1 do
+        scope module: :v1, contraints: AccessConstraints.new(version: 1, default: true) do
             resources :users, only: [:show]
         end
     end

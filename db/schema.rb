@@ -48,9 +48,4 @@ ActiveRecord::Schema.define(version: 20150630062225) do
   add_index "identities", ["dev_id"], name: "index_identities_on_dev_id", using: :btree
   add_index "identities", ["provider"], name: "index_identities_on_provider", using: :btree
 
-  create_table "users", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
 end

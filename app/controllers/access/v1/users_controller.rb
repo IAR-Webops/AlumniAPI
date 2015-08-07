@@ -1,7 +1,6 @@
 class Access::V1::UsersController < ApplicationController
-    before(:each) do
-        request.headers['Content-Type'] = Mime:JSON.to_s:
-    end
+    skip_before_filter :require_signin
+    respond_to :json
 
     def show
         respond_with User.find(params[:id])
