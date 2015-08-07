@@ -14,7 +14,13 @@ class Access::V1::UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
-            render json: @user, status: 201, location: [:access, @user]
+            @user_email = UserEmail.new(user_email_params)
+            @user_email.user_id = @user.id
+            if @user_email.save
+                render json: @user, status: 201, location: [:access, @user]
+            else
+                render json: { errors: @user_email.errors }, status: 422
+            end
         else
             render json: { errors: @user.errors }, status: 422
         end
@@ -47,6 +53,6 @@ class Access::V1::UsersController < ApplicationController
         end
 
         def user_email_params
-            params.permit(:email)
+            params.permit(:user_email)
         end
 end
