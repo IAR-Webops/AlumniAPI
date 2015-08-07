@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
     namespace :access, defaults: { format: :json } do
         scope module: :v1, contraints: AccessConstraints.new(version: 1, default: true) do
-            resources :users, only: [:show]
+            resources :users
         end
     end
 
